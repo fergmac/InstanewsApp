@@ -1,0 +1,65 @@
+$transitions: all 0.3s ease-out;
+$spacing: 0;
+$borders: 1px solid #808080;
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  a {
+  text-decoration: none;
+  }
+}
+
+.menu-link {
+  color: #ed4343;
+  float: right;
+  display: block;
+  padding: 1em;
+}
+
+nav {
+  background-color: #f4f4f4;
+  clear: both;
+  -webkit-transition: $transitions;
+  -moz-transition: $transitions;
+  -ms-transition: $transitions;
+  -o-transition: $transitions;
+  transition: $transitions;
+}
+
+.js nav {
+  overflow: hidden;
+  max-height: $spacing;
+}
+
+nav.active {
+  max-height: 15em;
+}
+
+nav ul {
+  margin: $spacing;
+  padding: $spacing;
+  border-top: $borders;
+  border-bottom: $borders;
+  li {
+  border-bottom: $borders;
+    a {
+      color: #ed4343;
+      display: block;
+      padding: 0.8em;
+    }
+    &:last-child {
+  border-bottom: $spacing;
+  } 
+  }
+}
+
+
+
+
+
