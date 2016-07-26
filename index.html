@@ -3,49 +3,54 @@
 <head>
 	<meta charset="utf-8">
 	<title>InstanewsApp</title>
-	<link rel="stylesheet" type="text/css" href="reset.css"> 
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="css/reset.css"> 
+	<link rel="stylesheet" type="text/css" href="css/style.min.css">
+	<link rel="stylesheet" href="js/heapbox/themes/midnight_blue/css/midnight_blue.css" type="text/css" media="screen">
+	<!-- <link rel="stylesheet" type="text/css" href="style.scss"> -->
 
 </head>
 <body>
-
+	<section class="container">
 <!--/////////////////////main////////////////////////////-->
 
-	<div class="flex-container">
-		<div class="nyt-logo">
-			<img src="images/nyt-logo.svg">
+<header class="header">
+	
+		<img class="nyt-symbol" src="images/nyt-logo.svg" alt="NYtimes-logo">
+
+	<div class="search-box">
+		<div class="search-text">
+			<p>Choose a section:</p>
 		</div>
-		<div class="body-text">
-			<div class="choose-section">
-				<p>Choose a section:</p>
-			</div>
-			<div class="news-topic">
-				<select name="select">
-						<option value="Sections" selected>Sections...</option>
-						<option value="">Home</option>
-						<option value="">Science</option>
-						<option value="">Business</option>		
-						<option value="">Sports</option>	
-						<option value="">Technology</option>
-						<option value="">Fashion</option>				
-				</select>
-			</div>
-		</div>
+		<select name="select" id="article-search">
+			<option value="Sections" id="article-name" selected>Sections...</option>
+			<option value="home">Home</option>
+			<option value="science">Science</option>
+			<option value="business">Business</option>		
+			<option value="sports">Sports</option>	
+			<option value="technology">Technology</option>
+			<option value="fashion">Fashion</option>
+		</select>
 	</div>
+</header>
+<div class="article-container">
+	<ul class="article-list">
+	</ul>
+</div>
 
+		
 
-<!--///////////////////////////footer//////////////////////-->
+		<!--///////////////////////////footer//////////////////////-->
 
-	<footer>
-		<div class="copyright">
-			<p>&copy; Copyright 2016 <span class="instanews">instanews</span></p>
-		</div>
-	</footer>
-	</div>
+		<footer class="footer">
+			<div class="copyright">
+				<p>&copy; Copyright 2016 <span class="instanews">instanews</span></p>
+			</div>
+		</footer>
+	</section>
+<!--//////////////////////////javascript//////////////-->
 
-<!--/////////////////javascript//////////////-->
-
-<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
-<script src="main.js"></script>
+<script src="https://code.jquery.com/jquery-3.0.0.js"></script>
+<script src="js/heapbox/src/jquery.heapbox-0.9.4.js" type="text/javascript"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
