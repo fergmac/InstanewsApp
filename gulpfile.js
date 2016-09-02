@@ -26,7 +26,7 @@ gulp.task('sass', function() {
       .pipe(gulp.dest(styleOut))
       .pipe(cssnano())
       .pipe(rename('style.min.css'))
-      .pipe(gulp.dest(styleOut));
+      .pipe(gulp.dest('build'));
 });
 
 gulp.task('compress', function(){

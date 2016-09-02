@@ -1,48 +1,53 @@
+var $ = require('jquery');
+window.jQuery = $;
+
+require('../css/style.scss');
+require("imports?$=jquery!../js/heapbox/src/jquery.heapbox-0.9.4.js");
+require('./heapbox/themes/midnight_blue/css/midnight_blue.css');
+
 $(document).ready(function(){
-console.log($);
 
-  
 
-  $('#article-search').heapbox(
+	$('#article-search').heapbox(
   	{'onChange':function() {  //on change of select menu the value is saved as variable
- 	
- 	var topicChoice = document.getElementById('article-search').value;
- 	console.log(topicChoice);
+
+  		var topicChoice = document.getElementById('article-search').value;
+
 
   	$('.article-container').append('<img src="images/ajax-loader.gif"  class="ajax-loader" id="loader"/>'); //loading gif is appended
   	$('header').addClass('header-search');		//header is shrunk on select change
   	$('.nyt-symbol').removeClass('nyt-symbol').addClass('nyt-search-size'); 
 
 		  // set some initial variables
-		var articleData, articleItems = '', articleName, url, 
+		  var articleData, articleItems = '', articleName, url, 
 		      $articleList = $('.article-list'); //accessing element like this is slower/costly so we store it in a variable when we have to access it more than once
 
 		$('.article-list').empty(); //any previous articles searched are removed from the page
-		 
+
 		//api key is concatenated with the variable retrieved from onChange function and the api key    
 		var url = 'https://api.nytimes.com/svc/topstories/v2/'+ topicChoice +'.json'; 
 		url += '?' + $.param({
-		  'api-key':"35c46b5e6cbb49dc9e14fa340746b634"});
+			'api-key':"35c46b5e6cbb49dc9e14fa340746b634"});
 			//ajax function retrieves data object from NYTimes
 			$.ajax({
-			url: url,
-			method: 'GET'
+				url: url,
+				method: 'GET'
 
 			})
 
 			.done(function(data) {
-			console.log(data);
-			articleData = data.results; 
-			articleItems = ''; 
-			var i = 0;
-			
+
+				articleData = data.results; 
+				articleItems = ''; 
+				var i = 0;
+
 
 				$.each(articleData, function(key, value) {
 
 					if (value.multimedia.length && i < 12) { //only 12 articles will be appended
-						articleImageUrl = value.multimedia[3].url; // setting variables for the different data sets retreived from api
-						articleCaption = value.abstract;
-						articleLink = value.url;
+						let articleImageUrl = value.multimedia[4].url; // setting variables for the different data sets retreived from api
+						let articleCaption = value.abstract;
+						let articleLink = value.url;
 						
 
 						//below article items are appended to the html article list
@@ -63,7 +68,7 @@ console.log($);
 				});
 				
 
-					$articleList.append(articleItems); 
+				$articleList.append(articleItems); 
 
 
 			}).fail(function() {
@@ -71,10 +76,10 @@ console.log($);
 
 
 			})
-			    .always(function() {
+			.always(function() {
       			$('#loader').remove(); //removes loading gif when search is complete
- 			 });
-  		
+      		});
+
 		}
-  	});
+	});
 });
