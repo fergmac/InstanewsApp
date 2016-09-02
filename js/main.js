@@ -45,6 +45,7 @@ $(document).ready(function(){
 				$.each(articleData, function(key, value) {
 
 					if (value.multimedia.length && i < 12) { //only 12 articles will be appended
+
 						let articleImageUrl = value.multimedia[4].url; // setting variables for the different data sets retreived from api
 						let articleCaption = value.abstract;
 						let articleLink = value.url;
